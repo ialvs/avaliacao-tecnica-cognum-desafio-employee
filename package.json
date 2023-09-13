@@ -1,0 +1,11 @@
+{
+  "name": "avaliacao-tecnica-cognum-desafio-employee",
+  "version": "1.0.0",
+  "description": "API RESTful escrita em Javascript utilizando o Express para interação com recurso Employees",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ian Alves",
+  "license": "ISC"
+}
