@@ -1,5 +1,5 @@
 const express = require("express");
-const employeeRoutes = require("./routes/user.routes");
+const employeeRoutes = require("./employee/employee.routes");
 
 const app = express();
 
