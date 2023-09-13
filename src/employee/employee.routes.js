@@ -1,9 +1,8 @@
 const { Router } = require("express");
+const { getAll } = require("./employee.controller");
 
 const routes = Router();
 
-routes.get("/hello", (req, res) => {
-    return res.json({ message: "Hello!" });
-});
+routes.get("/", getAll);
 
 module.exports = routes;
