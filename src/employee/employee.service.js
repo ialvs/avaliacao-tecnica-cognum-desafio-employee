@@ -1,5 +1,7 @@
 const knex = require("../db/knex.connection");
 
-knex;
+const findAll = async () => {
+    return await knex("employee").orderBy("id");
+};
 
-module.exports = {};
+module.exports = { findAll };
