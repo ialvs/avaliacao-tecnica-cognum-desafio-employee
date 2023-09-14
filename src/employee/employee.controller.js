@@ -1,21 +1,33 @@
 const { findAll, findById } = require("./employee.service");
 
 const getAll = async (req, res) => {
-    const employees = await findAll();
+    try {
+        const employees = await findAll();
 
-    return res.json(employees);
+        return res.json(employees);
+    } catch (error) {
+        console.log(error.message);
+        return res.status(500).json({ mensagem: "erro interno do servidor" });
+    }
 };
 
 const getById = async (req, res) => {
-    const { id } = req.params;
+    try {
+        const { id } = req.params;
 
-    const employee = await findById(id);
+        const employee = await findById(id);
 
-    if (employee.length == 0) {
-        return res.status(404).json({ mensagem: "empregado não encontrado." });
+        if (employee.length == 0) {
+            return res
+                .status(404)
+                .json({ mensagem: "empregado não encontrado." });
+        }
+
+        return res.json(employee);
+    } catch (error) {
+        console.log(error.message);
+        return res.status(500).json({ mensagem: "erro interno do servidor" });
     }
-
-    return res.json(employee);
 };
 
 module.exports = { getAll, getById };
