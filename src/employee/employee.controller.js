@@ -1,4 +1,4 @@
-const { findAll, findById } = require("./employee.service");
+const { findAll, findById, create } = require("./employee.service");
 
 const getAll = async (req, res) => {
     try {
@@ -30,4 +30,17 @@ const getById = async (req, res) => {
     }
 };
 
-module.exports = { getAll, getById };
+const createEmployee = async (req, res) => {
+    try {
+        const { name, role } = req.body;
+
+        const newEmployee = await create({ name, role });
+
+        return res.status(201).json(newEmployee);
+    } catch (error) {
+        console.log(error.message);
+        return res.status(500).json({ mensagem: "erro interno do servidor" });
+    }
+};
+
+module.exports = { getAll, getById, createEmployee };
