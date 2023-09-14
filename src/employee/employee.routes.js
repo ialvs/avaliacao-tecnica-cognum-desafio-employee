@@ -14,6 +14,6 @@ routes.get("/:id", paramIdIsNum, getById);
 
 routes.post("/", nameRoleAreNull, createEmployee);
 
-routes.put("/:id", updateEmployee);
+routes.put("/:id", paramIdIsNum, updateEmployee);
 
 module.exports = routes;
