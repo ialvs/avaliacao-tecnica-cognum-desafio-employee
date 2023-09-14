@@ -2,8 +2,8 @@ CREATE DATABASE employee;
 
 CREATE TABLE IF NOT EXISTS employee(
     id SERIAL PRIMARY KEY,
-    name TEXT,
-    role TEXT
+    name TEXT NOT NULL,
+    role TEXT NOT NULL
 );
 
 INSERT INTO employee (name, role)
