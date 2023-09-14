@@ -25,4 +25,8 @@ const update = async (updatedEmployee, id) => {
         .update({ name: newName, role: newRole }, ["id"]);
 };
 
-module.exports = { findAll, findById, create, update };
+const remove = async id => {
+    return await knex("employee").where("id", id).del();
+};
+
+module.exports = { findAll, findById, create, update, remove };
