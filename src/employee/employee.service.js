@@ -8,4 +8,10 @@ const findById = async id => {
     return await knex("employee").where("id", id);
 };
 
-module.exports = { findAll, findById };
+const create = async employee => {
+    const { name, role } = employee;
+
+    return knex("employee").insert({ name, role }, ["id", "name", "role"]);
+};
+
+module.exports = { findAll, findById, create };
