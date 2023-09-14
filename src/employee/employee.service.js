@@ -18,4 +18,11 @@ const create = async employee => {
     ]);
 };
 
-module.exports = { findAll, findById, create };
+const update = async (updatedEmployee, id) => {
+    const { newName, newRole } = updatedEmployee;
+    return await knex("employee")
+        .where("id", id)
+        .update({ name: newName, role: newRole }, ["id"]);
+};
+
+module.exports = { findAll, findById, create, update };
