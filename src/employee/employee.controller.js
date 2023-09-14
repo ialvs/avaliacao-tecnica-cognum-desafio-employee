@@ -1,4 +1,4 @@
-const { findAll, findById, create } = require("./employee.service");
+const { findAll, findById, create, update } = require("./employee.service");
 
 const getAll = async (req, res) => {
     try {
@@ -43,4 +43,34 @@ const createEmployee = async (req, res) => {
     }
 };
 
-module.exports = { getAll, getById, createEmployee };
+const updateEmployee = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { name, role } = req.body;
+        const oldEmployee = await findById(id);
+
+        if (oldEmployee.length == 0) {
+            return res
+                .status(404)
+                .json({ mensagem: "empregado não encontrado." });
+        }
+
+        const newName = name || oldEmployee[0].name;
+        const newRole = role || oldEmployee[0].role;
+
+        const updatedEmployee = await update({ newName, newRole }, id);
+
+        if (!updatedEmployee) {
+            return res
+                .status(404)
+                .json({ mensagem: "empregado não encontrado." });
+        }
+
+        return res.status(204).send();
+    } catch (error) {
+        console.log(error.message);
+        return res.status(500).json({ mensagem: "erro interno do servidor" });
+    }
+};
+
+module.exports = { getAll, getById, createEmployee, updateEmployee };
