@@ -11,7 +11,11 @@ const findById = async id => {
 const create = async employee => {
     const { name, role } = employee;
 
-    return knex("employee").insert({ name, role }, ["id", "name", "role"]);
+    return await knex("employee").insert({ name, role }, [
+        "id",
+        "name",
+        "role",
+    ]);
 };
 
 module.exports = { findAll, findById, create };
