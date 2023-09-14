@@ -4,6 +4,7 @@ const {
     getById,
     createEmployee,
     updateEmployee,
+    deleteEmployee,
 } = require("./employee.controller");
 const { paramIdIsNum, nameRoleAreNull } = require("./employee.middleware");
 
@@ -15,5 +16,7 @@ routes.get("/:id", paramIdIsNum, getById);
 routes.post("/", nameRoleAreNull, createEmployee);
 
 routes.put("/:id", paramIdIsNum, updateEmployee);
+
+routes.delete("/:id", paramIdIsNum, deleteEmployee);
 
 module.exports = routes;
