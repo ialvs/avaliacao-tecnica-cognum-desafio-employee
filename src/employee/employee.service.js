@@ -4,4 +4,8 @@ const findAll = async () => {
     return await knex("employee").orderBy("id");
 };
 
-module.exports = { findAll };
+const findById = async id => {
+    return await knex("employee").where("id", id);
+};
+
+module.exports = { findAll, findById };
