@@ -13,7 +13,7 @@ const getAll = async (req, res) => {
         return res.json(employees);
     } catch (error) {
         console.log(error.message);
-        return res.status(500).json({ mensagem: "erro interno do servidor" });
+        return res.status(500).json({ message: "internal server error" });
     }
 };
 
@@ -24,15 +24,13 @@ const getById = async (req, res) => {
         const employee = await findById(id);
 
         if (employee.length == 0) {
-            return res
-                .status(404)
-                .json({ mensagem: "empregado não encontrado." });
+            return res.status(404).json({ message: "employee not found." });
         }
 
         return res.json(employee);
     } catch (error) {
         console.log(error.message);
-        return res.status(500).json({ mensagem: "erro interno do servidor" });
+        return res.status(500).json({ message: "internal server error" });
     }
 };
 
@@ -45,7 +43,7 @@ const createEmployee = async (req, res) => {
         return res.status(201).json(newEmployee);
     } catch (error) {
         console.log(error.message);
-        return res.status(500).json({ mensagem: "erro interno do servidor" });
+        return res.status(500).json({ message: "internal server error" });
     }
 };
 
@@ -56,9 +54,7 @@ const updateEmployee = async (req, res) => {
         const oldEmployee = await findById(id);
 
         if (oldEmployee.length == 0) {
-            return res
-                .status(404)
-                .json({ mensagem: "empregado não encontrado." });
+            return res.status(404).json({ message: "employee not found." });
         }
 
         const newName = name || oldEmployee[0].name;
@@ -67,15 +63,13 @@ const updateEmployee = async (req, res) => {
         const updatedEmployee = await update({ newName, newRole }, id);
 
         if (!updatedEmployee) {
-            return res
-                .status(404)
-                .json({ mensagem: "empregado não encontrado." });
+            return res.status(404).json({ message: "employee not found." });
         }
 
         return res.status(204).send();
     } catch (error) {
         console.log(error.message);
-        return res.status(500).json({ mensagem: "erro interno do servidor" });
+        return res.status(500).json({ message: "internal server error" });
     }
 };
 
@@ -86,15 +80,13 @@ const deleteEmployee = async (req, res) => {
         const rowCount = await remove(id);
 
         if (rowCount == 0) {
-            return res
-                .status(404)
-                .json({ mensagem: "empregado não encontrado." });
+            return res.status(404).json({ message: "employee not found." });
         }
 
         return res.status(204).send();
     } catch (error) {
         console.log(error.message);
-        return res.status(500).json({ mensagem: "erro interno do servidor" });
+        return res.status(500).json({ message: "internal server error" });
     }
 };
 

@@ -2,9 +2,7 @@ const paramIdIsNum = async (req, res, next) => {
     const { id } = req.params;
 
     if (isNaN(+id)) {
-        return res
-            .status(400)
-            .json({ mensagem: "informe um número como parâmetro." });
+        return res.status(400).json({ mensagem: "params must be a number." });
     }
 
     next();
@@ -16,7 +14,7 @@ const nameRoleAreNull = async (req, res, next) => {
     if (!name || !role) {
         return res
             .status(400)
-            .json({ mensagem: "nome e cargo devem ser informados" });
+            .json({ mensagem: "name and role must be informed." });
     }
 
     next();
