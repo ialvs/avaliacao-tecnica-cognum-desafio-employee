@@ -2,29 +2,60 @@
 
 Essa é uma API RESTful escrita em Javascript (Express) que utiliza um banco SQL (PostgreSQL) e o query builder Knex para gerenciar informações de employees (empregados). Com ela, é possível criar, atualizar, remover e listar os employees e realizar requisições a uma API de terceiros, [a Random User Generator](https://randomuser.me/) para obter dados que alimentarão o banco, mantendo o registro dos empregados.
 
+Projeto desenvolvido como parte da avaliação técnica da Cognum, referente aos desafios 1, 2 3.
+
 ## Instalação
 
 Antes de tudo, certifique-se de ter o Node.js e o npm instalados em sua máquina.
 
 1. Clone o repositório para sua máquina:
-`git git@github.com:ialvs/avaliacao-tecnica-cognum-desafio-employee.git `
+
+```
+git clone git@github.com:ialvs/avaliacao-tecnica-cognum-desafio-employee.git
+```
 
 2. Acesse a pasta da API:
-`cd avaliacao-tecnica-cognum-desafio-employee`
+
+```
+cd avaliacao-tecnica-cognum-desafio-employee
+```
 
 3. Instale as dependências:
-`npm install`
+
+```
+npm install
+```
 
 4. Crie um arquivo .env e adicione as variáveis:
 
-``
+```
+DB_HOST = host do banco PostgreSQL
+DB_PORT = porta de acesso do banco
+DB_USER = user do banco
+DB_PASSWORD = senha do banco
+DB_DATABASE = nome do banco
+PORT = porta de acesso do servidor (opcional)
+```
 
 5. Inicie a aplicação:
-`npm start`
+
+```
+npm start
+```
 
 6. Teste os endpoints com um client HTTP
 
 ## Uso
+
+A API utiliza a porta 3000 por padrão. As rotas disponíveis são:
+
+GET /hello - Retorna a mensagem "Hello, Cognum!"
+GET /employee - Retorna uma lista com todos os employee.
+GET /employee/id - Retorna as informações de um employee a partir do id dele.
+POST /employee - Cria um novo employee.
+PUT /employee/id - Atualiza as informações de um employee a partir do id dele.
+DELETE /employee - Deleta um employee a partir do id dele.
+GET /populate - Recebe as informações de 10 pessoas criadas na API de terceiros e as insere no banco como employee.
 
 ## Tecnologias utilizadas
 
@@ -32,3 +63,17 @@ Antes de tudo, certifique-se de ter o Node.js e o npm instalados em sua máquina
 - Express: Framework JavaScript minimalista que com ferramentas para criação de aplicações Web do lado do servidor.
 - PostgreSQL: Banco de dados SQL.
 - Knex: Construtor de querys SQL para simplificar as interações com banco de dados.
+- Axios: Biblioteca que simplifica a realização de requisições HTTP.
+
+## Organização das pastas
+
+- Raiz é composta de arquivos de configuração e do git.
+- Raiz/src é composta dos arquivos de código:
+    - db: contém o arquivo de conexão Knex e o dump do banco SQL.
+    - employee contém os arquivos relacionados ao recurso:
+        - .controller, recebem e gerenciam as requisições HTTP.
+        - .middleware, validam e fazem operações nas requisições HTTP.
+        - .routes, relaciona as rotas com os respectivos controllers e middlewares.
+        - .service funções responsáveis por execuções de querys no banco e interação com API de terceiros.
+    - index: entry point, instacia o servido, atribui uma porta e escuta requisições dela
+    - server: concentra as configurações gerais do servidor.
