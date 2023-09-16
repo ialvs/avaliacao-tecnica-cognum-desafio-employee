@@ -4,6 +4,7 @@ const {
     create,
     update,
     remove,
+    populateEmployee,
 } = require("./employee.service");
 
 const getAll = async (req, res) => {
@@ -90,10 +91,21 @@ const deleteEmployee = async (req, res) => {
     }
 };
 
+const populate = async (req, res) => {
+    try {
+        const newEmployees = await populateEmployee();
+        return res.status(201).json(newEmployees);
+    } catch (error) {
+        console.log(error.message);
+        return res.status(500).json({ message: "internal server error" });
+    }
+};
+
 module.exports = {
     getAll,
     getById,
     createEmployee,
     updateEmployee,
     deleteEmployee,
+    populate,
 };
