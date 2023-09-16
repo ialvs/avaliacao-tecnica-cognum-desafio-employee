@@ -1,5 +1,6 @@
 const express = require("express");
 const employeeRoutes = require("./employee/employee.routes");
+const populateRoute = require("./employee/populate.routes");
 const cors = require("cors");
 
 const app = express();
@@ -16,5 +17,6 @@ app.get("/hello", async (req, res) => {
 });
 
 app.use("/employee", employeeRoutes);
+app.use("/populate", populateRoute);
 
 module.exports = app;
