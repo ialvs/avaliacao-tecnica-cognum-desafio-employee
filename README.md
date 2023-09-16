@@ -2,7 +2,7 @@
 
 Essa é uma API RESTful escrita em Javascript (Express) que utiliza um banco SQL (PostgreSQL) e o query builder Knex para gerenciar informações de employees (empregados). Com ela, é possível criar, atualizar, remover e listar os employees e realizar requisições a uma API de terceiros, [a Random User Generator](https://randomuser.me/) para obter dados que alimentarão o banco, mantendo o registro dos empregados.
 
-Projeto desenvolvido como parte da avaliação técnica da Cognum, referente aos desafios 1, 2 3.
+Projeto desenvolvido como parte da avaliação técnica da Cognum, referente aos desafios 1, 2 e 3.
 
 ## Instalação
 
@@ -45,6 +45,10 @@ npm start
 
 6. Teste os endpoints com um client HTTP
 
+## Deploy
+
+Deploy da API realizado na plataforma [Cyclic](https://www.cyclic.sh/) e do banco PostgreSQL na [ElephantSQL](https://www.elephantsql.com/).
+
 ## Uso
 
 A API utiliza a porta 3000 por padrão. As rotas disponíveis são:
@@ -64,6 +68,9 @@ GET /populate - Recebe as informações de 10 pessoas criadas na API de terceiro
 - PostgreSQL: Banco de dados SQL.
 - Knex: Construtor de querys SQL para simplificar as interações com banco de dados.
 - Axios: Biblioteca que simplifica a realização de requisições HTTP.
+- Eslint, Prettier e husky: Ferramentas de correção e formatação de código, realizando a padronização a cada commit realizado.
+- Dotenv: Biblioteca para controle de variáveis de ambiente, acrescentando portabilidade e segurança ao projeto.
+- Nodemon: Ferramenta de desenvolvimento que propicia um hot reload da aplicação.
 
 ## Organização das pastas
 
