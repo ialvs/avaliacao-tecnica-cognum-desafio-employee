@@ -26,24 +26,36 @@ cd avaliacao-tecnica-cognum-desafio-employee
 npm install
 ```
 
-4. Crie um arquivo .env e adicione as variáveis:
+4. Execute o código SQL abaixo num banco de dados PostgreSQL:
+
+```
+CREATE DATABASE employee;
+
+CREATE TABLE IF NOT EXISTS employee(
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    role TEXT NOT NULL
+);
+```
+
+5. Crie um arquivo .env e adicione as variáveis:
 
 ```
 DB_HOST = host do banco PostgreSQL
 DB_PORT = porta de acesso do banco
 DB_USER = user do banco
 DB_PASSWORD = senha do banco
-DB_DATABASE = nome do banco
+DB_DATABASE = employee
 PORT = porta de acesso do servidor (opcional)
 ```
 
-5. Inicie a aplicação:
+6. Inicie a aplicação:
 
 ```
 npm start
 ```
 
-6. Teste os endpoints com um client HTTP
+7. Teste os endpoints com um client HTTP
 
 ## Deploy
 
