@@ -76,7 +76,7 @@ A API utiliza a porta 3000 por padrão. As rotas disponíveis são:
 ## Tecnologias utilizadas
 
 - Javascript: Linguaguem de programação executada no runtime NodeJS.
-- Express: Framework JavaScript minimalista que com ferramentas para criação de aplicações Web do lado do servidor.
+- Express: Framework JavaScript minimalista com ferramentas para criação de aplicações Web do lado do servidor.
 - PostgreSQL: Banco de dados SQL.
 - Knex: Construtor de querys SQL para simplificar as interações com banco de dados.
 - Axios: Biblioteca que simplifica a realização de requisições HTTP.

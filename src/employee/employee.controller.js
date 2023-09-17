@@ -14,7 +14,7 @@ const getAll = async (req, res) => {
         return res.json(employees);
     } catch (error) {
         console.log(error.message);
-        return res.status(500).json({ message: "internal server error" });
+        return res.status(500).json({ message: "internal server error." });
     }
 };
 
@@ -31,7 +31,7 @@ const getById = async (req, res) => {
         return res.json(employee);
     } catch (error) {
         console.log(error.message);
-        return res.status(500).json({ message: "internal server error" });
+        return res.status(500).json({ message: "internal server error." });
     }
 };
 
@@ -44,7 +44,7 @@ const createEmployee = async (req, res) => {
         return res.status(201).json(newEmployee);
     } catch (error) {
         console.log(error.message);
-        return res.status(500).json({ message: "internal server error" });
+        return res.status(500).json({ message: "internal server error." });
     }
 };
 
@@ -70,7 +70,7 @@ const updateEmployee = async (req, res) => {
         return res.status(204).send();
     } catch (error) {
         console.log(error.message);
-        return res.status(500).json({ message: "internal server error" });
+        return res.status(500).json({ message: "internal server error." });
     }
 };
 
@@ -87,7 +87,7 @@ const deleteEmployee = async (req, res) => {
         return res.status(204).send();
     } catch (error) {
         console.log(error.message);
-        return res.status(500).json({ message: "internal server error" });
+        return res.status(500).json({ message: "internal server error." });
     }
 };
 
@@ -97,7 +97,7 @@ const populate = async (req, res) => {
         return res.status(201).json(newEmployees);
     } catch (error) {
         console.log(error.message);
-        return res.status(500).json({ message: "internal server error" });
+        return res.status(500).json({ message: "internal server error." });
     }
 };
 
