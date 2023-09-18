@@ -70,7 +70,7 @@ A API utiliza a porta 3000 por padrão. As rotas disponíveis são:
 <p>GET /employee/id - Retorna as informações de um employee a partir do id dele.</p>
 <p>POST /employee - Cria um novo employee.</p>
 <p>PUT /employee/id - Atualiza as informações de um employee a partir do id dele.</p>
-<p>DELETE /employee - Deleta um employee a partir do id dele.</p>
+<p>DELETE /employee/id - Deleta um employee a partir do id dele.</p>
 <p>GET /populate - Recebe as informações de 10 pessoas criadas na API de terceiros e as insere no banco como employee.</p>
 
 ## Tecnologias utilizadas
