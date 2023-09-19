@@ -55,7 +55,7 @@ PORT = porta de acesso do servidor (opcional)
 npm start
 ```
 
-7. Teste os endpoints com um client HTTP
+7. Teste os endpoints com um client HTTP.
 
 ## Deploy
 
